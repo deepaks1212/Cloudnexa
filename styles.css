@@ -1,9 +1,4 @@
-/* ======================
-   CLOUDNEXA — styles.css
-   Pure CSS3, no frameworks
-   ====================== */
 
-/* ============ 1. VARIABLES ============ */
 :root {
   --bg:           #f8fafc;
   --bg-alt:       #f1f5f9;
@@ -379,7 +374,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   position: relative; z-index: 1;
   width: 100%;
@@ -393,8 +388,9 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
   transition: all var(--transition);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+  text-align: center;
 }
 .stat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
 .stat-card::before {
@@ -414,7 +410,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
   width: 48px; height: 48px;
   border-radius: var(--radius);
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.25rem;
+  margin: 0 auto 1.25rem;
 }
 .stat-icon-blue    { background: linear-gradient(135deg,#3b82f6,#06b6d4); }
 .stat-icon-violet  { background: linear-gradient(135deg,#8b5cf6,#6366f1); }
@@ -702,7 +698,8 @@ blockquote { font-size: 1.0625rem; line-height: 1.7; color: var(--fg-muted); mar
 
 /* ============ 20. RESPONSIVE ============ */
 @media (max-width: 1024px) {
-  .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+  /* collapse stats to two columns on tablet */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
@@ -717,8 +714,8 @@ blockquote { font-size: 1.0625rem; line-height: 1.7; color: var(--fg-muted); mar
   .hero-float { display: none; }
   .hero-actions .btn { flex: 1 1 200px; }
 
-  /* Stats */
-  .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  /* Stats — two columns for smaller screens */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
   .stat-card { padding: 1rem 0.75rem; }
   .stat-label { font-size: 0.7rem; }
   .stat-sublabel { font-size: 0.7rem; margin-bottom: 0.75rem; }
@@ -750,7 +747,8 @@ blockquote { font-size: 1.0625rem; line-height: 1.7; color: var(--fg-muted); mar
 }
 
 @media (max-width: 520px) {
-  .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  /* Stats adapt for small phones */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
   .stat-card { padding: 0.75rem 0.5rem; }
   .stat-icon { width: 40px; height: 40px; margin-bottom: 0.75rem; }
   .stat-value { font-size: clamp(1.5rem, 3vw, 2rem); }
@@ -762,4 +760,13 @@ blockquote { font-size: 1.0625rem; line-height: 1.7; color: var(--fg-muted); mar
   .footer-grid { grid-template-columns: 1fr; }
   .testimonial-card { padding: 1.75rem; }
   .contact-form-wrapper { padding: 1.75rem; }
+  .container { padding: 0 1rem; }
+}
+
+@media (max-width: 400px) {
+  /* Very small devices — single column stats */
+  .stats-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: clamp(1.75rem, 6vw, 2.75rem); }
+  .hero-subtitle { font-size: 0.95rem; }
+  .nav-logo { font-size: 1.25rem; }
 }
