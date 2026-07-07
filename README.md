@@ -15,3 +15,24 @@ Cloudnexa is a modern cloud infrastructure company that helps businesses build, 
 - HTML5
 - CSS3
 - JavaScript
+
+## 📸 Screenshots
+
+### Home Page
+
+![Cloudnexa Home Page](screensort/homepage.png)
+
+### Services Page
+
+![Cloudnexa Services](screensort/service.png)
+
+### Contact Page
+
+![Cloudnexa Contact](screensort/contact.png)
+
+###  surfacepro device
+
+![Cloudnexa Contact](screensort/surface_pro%20device.png)
+
+### mobiledevices
+![Cloudnexa Contact](screensort/mobiledevice.png)
